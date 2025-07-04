@@ -109,7 +109,7 @@
     {%- set merge_part -%}
       on (
           {%- for key in unique_key_cols -%}
-            target.{{ key }} = src.{{ key }}
+            target."{{ key }}" = src."{{ key }}"
             {{ " and " if not loop.last }}
           {%- endfor -%}
           {% if incremental_predicates is not none -%}
